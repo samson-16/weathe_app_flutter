@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather_app/screens/forcast_report_screen.dart';
 import 'package:weather_app/screens/search_screen.dart';
-// import 'package:weather_app/screens/settings_screen.dart';
 import 'package:weather_app/screens/weather_screen/weather_screen.dart';
+import 'package:weather_app/screens/AuthService.dart';
 
 import '/constants/app_colors.dart';
 import '/services/api_helper.dart';
@@ -22,7 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
     WeatherScreen(),
     SearchScreen(),
     ForecastReportScreen(),
-    // SettingsScreen(),
   ];
 
   @override
@@ -30,10 +29,11 @@ class _HomeScreenState extends State<HomeScreen> {
     _getLocationPermission();
     super.initState();
   }
-_getLocationPermission() async {
+
+  _getLocationPermission() async {
     final permission = await Geolocator.requestPermission();
     if (permission == LocationPermission.whileInUse || permission == LocationPermission.always) {
-          ApiHelper.getCurrentWeather();
+      ApiHelper.getCurrentWeather();
     }
     if (permission == LocationPermission.denied) {
       await Geolocator.openAppSettings();
@@ -70,12 +70,17 @@ _getLocationPermission() async {
               selectedIcon: Icon(Icons.wb_sunny, color: Colors.white),
               label: 'Report ',
             ),
-            // NavigationDestination(
-            //   icon: Icon(Icons.settings_outlined, color: Colors.white),
-            //   selectedIcon: Icon(Icons.settings, color: Colors.white),
-            //   label: 'Settings',
-            // ),
           ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          await AuthService().signOut();
+        },
+        backgroundColor: AppColors.lightBlue, // Use your app's accent color
+        child: const Icon(
+          Icons.logout,
+          color: Colors.white,
         ),
       ),
     );

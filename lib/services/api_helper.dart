@@ -60,7 +60,6 @@ class ApiHelper{
     return Weather.fromJson(response);
   }
 
-   //! Build urls
   static String _constructWeatherUrl() =>
       '$baseUrl/weather?lat=$lat&lon=$lon&units=metric&appid=${Constants.apiKey}';
 

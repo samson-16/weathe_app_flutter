@@ -18,4 +18,8 @@ List<FamousCity> famousCities = const [
   FamousCity(name: 'Arba Minch', lat: 51.4833, lon: -0.0833),
   FamousCity(name: 'Mekele', lat: 40.7167, lon: -74.0167),
   FamousCity(name: 'Jimma', lat: 35.6833, lon: 51.4167),
+  FamousCity(name: 'Dire dawa', lat: 9.6049, lon: 41.8585),
+  FamousCity(name: 'Harar', lat: 9.3124, lon: 42.1218),
+  FamousCity(name: 'Adama', lat: 8.5263, lon: 39.2583),
+
 ];

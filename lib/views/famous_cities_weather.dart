@@ -12,7 +12,7 @@ class FamousCitiesWeather extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      shrinkWrap: true,
+      shrinkWrap: true, // Make the grid take up only the space it needs
       physics: const NeverScrollableScrollPhysics(),
       itemCount: famousCities.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

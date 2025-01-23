@@ -28,7 +28,6 @@ String getWeatherIcon({
   return weatherCondition;
 }
 
-//! Mpas weather codes (from opne-meteo) to image urls
 String getWeatherIcon2(int id) {
   if (id == 0) {
     return 'assets/icons/01d.png';

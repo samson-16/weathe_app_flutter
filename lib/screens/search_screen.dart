@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:weather_app/views/famous_cities_weather.dart';
+
 import 'package:weather_app/views/gradient_container.dart';
+
 import 'package:weather_app/widgets/round_text_field.dart';
+
 import 'package:weather_app/screens/weather_detail_screen.dart'; // Import the WeatherDetailScreen
 
 import '/constants/app_colors.dart';
@@ -22,12 +26,15 @@ class _SearchScreenState extends State<SearchScreen> {
     super.initState();
     _searchController = TextEditingController();
   }
-
+//clean up resources when the SearchScreen widget is removed from the widget tree
   @override
   void dispose() {
     _searchController.dispose();
     super.dispose();
   }
+
+
+
 
   void _searchCity() {
     final cityName = _searchController.text.trim();

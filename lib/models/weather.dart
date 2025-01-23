@@ -34,6 +34,7 @@ class Weather {
     required this.cod,
   });
 
+
   factory Weather.fromJson(Map<String, dynamic> json) => Weather(
         coord: Coord.fromJson(json['coord'] as Map<String, dynamic>),
         weather: (json['weather'] as List<dynamic>)
